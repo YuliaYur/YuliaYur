@@ -30,13 +30,17 @@ Highlights:
 Repository: https://github.com/YuliaYur/ocr-dataset-generator
 
 ### OCR Engine
-OCR pipeline for degraded text images using custom CTC-based models for single-line and multi-line recognition.
+CRNN + CTC OCR for low-quality (noisy, blurred, skewed) document images, and the reference implementation behind two published papers. A training-free line-cutting algorithm lets a single-line recognizer read full multi-line pages, beating Tesseract and Google Cloud Vision on degraded text.
 
 Highlights:
-- Custom OCR models for low-quality/degraded images
-- Baseline comparison with Tesseract and EasyOCR
-- Reproducible training and evaluation scripts
-- Project structure with notebooks, reports, tests, and sample images
+- ~0.02 relative Levenshtein distance vs 0.74 (Tesseract) and 0.19 (Google Cloud Vision)
+- Novel line-cutting preprocessing: align the page, split into single-line crops, recognize each, merge
+- Synthetic-to-real transfer learning cuts recognition error by ~32% on the SROIE dataset
+- Unified KerasOCR/TesseractOCR interface, CLI train/evaluate, TensorBoard logging, and a GPU Dockerfile
+
+Papers:
+- *Development of a prototype of an optical text recognition system for low-quality images* — Visnyk of Lviv University (Applied Mathematics and Informatics), 2021: https://publications.lnu.edu.ua/bulletins/index.php/ami/article/view/11344
+- *Enhancing OCR Model Training with Synthetic Data: A Case Study with the SROIE Dataset* — IEEE SIST 2024: https://ieeexplore.ieee.org/document/10629363
 
 Repository: https://github.com/YuliaYur/ocr-engine
 
