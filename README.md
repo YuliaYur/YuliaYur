@@ -1,10 +1,10 @@
 # Hi, I'm Yuliana 👋
 
-I'm a Machine Learning Engineer with 5+ years of experience building, deploying, and optimizing production ML systems across computer vision, LLM applications, real-time inference, synthetic data generation, and on-device AI.
+I'm a Senior Machine Learning Engineer with 5+ years of experience building, deploying, and optimizing production ML systems across computer vision, LLM applications, real-time inference, synthetic data generation, and on-device AI.
 
 My work combines applied ML research with production engineering: model training, evaluation, inference optimization, data pipelines, CI/CD, testing, monitoring, and developer-facing documentation.
 
-Currently, I work as a Machine Learning Engineer at Samsung Electronics, focusing on real-time ML systems, model optimization, synthetic data pipelines, and production deployment.
+Currently, I work as a Machine Learning Engineer at Samsung Electronics, focusing on real-time, on-device ML for wearables, model optimization, and synthetic data pipelines.
 
 ## Focus areas
 
@@ -45,12 +45,13 @@ Papers:
 Repository: https://github.com/YuliaYur/ocr-engine
 
 ### Mask Detection
-Computer vision research project for face/mask detection and image preprocessing experiments.
+A two-stage real-time face-mask detector (YOLOv7-Face → EfficientNetV2-B3), and the work behind my master's thesis.
 
 Highlights:
-- Face detection and mask-detection experiments
-- Docker-based project setup
-- Research-oriented repository with model and preprocessing experiments
+- 87.2% mAP on a custom school dataset, running in real time (~4–5 images/s) on a CPU
+- Synthetic mask data drawn on SPIGA facial landmarks; synthetic→original transfer learning improves accuracy with no extra labeling
+- Optional three-stage variant adds CodeFormer face restoration for higher accuracy at a known speed cost
+- CLIs (train / detect / evaluate / FLOPs), unit tests + CI, and a Docker setup
 
 Repository: https://github.com/YuliaYur/mask-detection
 
