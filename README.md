@@ -15,8 +15,21 @@ Currently, I work as a Machine Learning Engineer at Samsung Electronics, focusin
 - Computer vision: OCR, pose estimation, face recognition, object detection
 - Synthetic data generation and model evaluation
 - LLM-powered automation and feedback analysis systems
+- Agentic RAG and LLM applications: retrieval pipelines, vector databases, agent orchestration, and LLM evaluation
 
 ## Selected projects
+
+### Agentic RAG over arXiv
+A production-grade **agentic RAG** system that answers questions about 20 landmark transformer-lineage papers with short, **cited, self-checked** answers — grounded or it declines, never a confident hallucination.
+
+Highlights:
+- LangGraph agent that grades its own context, re-retrieves across papers for multi-hop questions, and critiques its own citations (recall on cross-paper comparisons 0.75 → 1.00)
+- Hybrid retrieval (dense + BM25 → RRF → cross-encoder rerank) over Qdrant; prompt-injection + abstain-on-low-confidence guardrails
+- LiteLLM per-role routing + Redis semantic cache: −71% cost routed, −100% on warm cache
+- Quality treated as a build signal: RAGAS-style + LLM-judge eval gated in CI (fails the PR on regression); Langfuse tracing
+- One-command `docker compose up` for the whole stack (FastAPI + Streamlit + Qdrant + Redis), index preloaded
+
+Repository: https://github.com/YuliaYur/agentic-rag-arxiv
 
 ### OCR Dataset Generator
 Synthetic OCR data generation pipeline for creating clean and degraded text images with word-level annotations.
@@ -66,9 +79,10 @@ Repository: https://github.com/YuliaYur/mask-detection
 
 **Languages:** Python, SQL, C#  
 **ML/DL:** PyTorch, TensorFlow, Hugging Face, scikit-learn, OpenCV, LangChain  
-**MLOps & Cloud:** AWS, Docker, CI/CD, DVC, Git, Git LFS, monitoring, testing  
+**LLM & RAG:** LangGraph, LiteLLM, Qdrant (vector DB), RAG, agent orchestration, RAGAS/LLM-judge eval, Langfuse  
+**MLOps & Cloud:** AWS, Docker, CI/CD, DVC, Git, Git LFS, FastAPI, monitoring, testing  
 **Deployment:** ONNX, TFLite, real-time inference, edge/on-device ML  
-**Domains:** Computer Vision, OCR, Pose Estimation, LLM Applications, Synthetic Data, Time-Series ML
+**Domains:** Computer Vision, OCR, Pose Estimation, LLM Applications, Agentic RAG, Synthetic Data, Time-Series ML
 
 ## Education & research
 
